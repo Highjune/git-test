@@ -7,6 +7,7 @@
 
 ## 명령어 (기본적으로 git (명령어) -help 를 통해 직접 확인하는 습관을 가지자)
 - remote 서버(ex. origin)와 동기화
+  - fetch는 서버로부터 데이터를 가져와서 저장해두고 사용자가 merge하도록 준비만 해둔다. 워킹 디렉토리의 파일 내용은 변경하지 않고 그대로 남는다. 
 ```
 git fetch origin --all
 ```
@@ -14,7 +15,10 @@ git fetch origin --all
 ```
 git merge origin/develop
 ```
-
+- fetch와 merge를 동시에
+```
+git pull origin master
+```
 - 리모트 트래킹 브랜치에서 시작하는 새 브랜치를 만들 때. 새로운 기능추가 작업을 할 때 release 브런치에서 생성한 후 다 작업이 끝나면 develop에 merge할 브런치 생성하는 것
 ```
 git checkout -b feature/PROD-11111 origin/release
