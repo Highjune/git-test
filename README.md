@@ -5,7 +5,7 @@
 - 여러 명령어 만지작 만지작
 
 
-## 명령어
+## 명령어 (기본적으로 git (명령어) -help 를 통해 직접 확인하는 습관을 가지자)
 - remote 서버(ex. origin)와 동기화
 ```
 git fetch origin
