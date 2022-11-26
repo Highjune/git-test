@@ -6,6 +6,15 @@
 
 
 ## 명령어
+- remote 서버(ex. origin)와 동기화
+```
+git fetch origin
+```
+- 동기화 후 실제 merge (ex. origin 리모트 서버의 develop 브런치와 develop). 로컬에서 develop 으로 체크아웃한 후 실행하기.
+```
+git merge origin/develop
+```
+
 - 리모트 트래킹 브랜치에서 시작하는 새 브랜치를 만들 때. 새로운 기능추가 작업을 할 때 release 브런치에서 생성한 후 다 작업이 끝나면 develop에 merge할 브런치 생성하는 것
 ```
 git checkout -b feature/PROD-11111 origin/release
