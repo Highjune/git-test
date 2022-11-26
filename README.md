@@ -19,3 +19,8 @@ git merge origin/develop
 ```
 git checkout -b feature/PROD-11111 origin/release
 ```
+
+- 현재 추적 브런치가 어떻게 설정되어 있는가
+```
+git branch -vv
+```
