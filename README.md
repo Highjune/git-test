@@ -31,6 +31,7 @@ git branch -vv
 ```
 
 - 리모트 브런치 삭제
+  - 서버에서 브랜치(즉 커밋을 가리키는 포인터) 
 ```
 git push origin --delete hotfixbranch
 ```
