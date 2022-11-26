@@ -8,7 +8,7 @@
 ## 명령어 (기본적으로 git (명령어) -help 를 통해 직접 확인하는 습관을 가지자)
 - remote 서버(ex. origin)와 동기화
 ```
-git fetch origin
+git fetch origin --all
 ```
 - 동기화 후 실제 merge (ex. origin 리모트 서버의 develop 브런치와 develop). 로컬에서 develop 으로 체크아웃한 후 실행하기.
 ```
