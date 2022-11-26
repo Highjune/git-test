@@ -29,3 +29,8 @@ git checkout -b feature/PROD-11111 origin/release
 git fetch --all
 git branch -vv
 ```
+
+- 리모트 브런치 삭제
+```
+git push origin --delete hotfixbranch
+```
