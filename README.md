@@ -8,6 +8,7 @@
 ## 명령어 (기본적으로 git (명령어) -help 를 통해 직접 확인하는 습관을 가지자)
 - remote 서버(ex. origin)와 동기화
   - fetch는 서버로부터 데이터를 가져와서 저장해두고 사용자가 merge하도록 준비만 해둔다. 워킹 디렉토리의 파일 내용은 변경하지 않고 그대로 남는다. 
+  - fetch 만 후에 git log 로 어떤 작업들을 했는지 확인해볼 수 있음. 그 후에 merge 
 ```
 git fetch origin --all
 ```
