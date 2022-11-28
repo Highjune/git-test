@@ -19,7 +19,7 @@ git merge origin/develop
 ```
 git pull origin master
 ```
-- 리모트 트래킹 브랜치에서 시작하는 새 브랜치를 만들 때. 새로운 기능추가 작업을 할 때 release 브런치에서 생성한 후 다 작업이 끝나면 develop에 merge할 브런치 생성하는 것
+- 리모트 트래킹 브랜치에서 시작하는 새 브랜치를 만들 때. 새로운 기능추가 작업을 할 때 release 브런치를 기반으로 생성한 후 다 작업이 끝나면 develop에 merge할 브런치 생성하는 것
 ```
 git checkout -b feature/PROD-11111 origin/release
 ```
