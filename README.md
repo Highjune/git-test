@@ -63,6 +63,19 @@ git show 7b2a5f9
   ```
   git log origin/master..HEAD
   ```
+- 히스토리에서 언제 추가되거나 변경됐는지 찾아보기. 
+  - `-S` 옵션. 해당 문자열이 추가된 커밋과 없어진 커밋만 검색할 수 있다.
+  ```
+  git log -S haha --oneline
+  ```
+- 라인 히스토리 검색 (매우 유용)
+  - `-L` 옵션. 어떤 함수나 한 라인의 히스토리를 볼 수 있다.
+  - 함수의 시작과 끝을 인식해서 함수에서 일어난 모든 히스토리를 함수가 처음 만들어진 때부터 Patch를 나열하여 보여준다. 
+  - ex) zlib.c 파일에 있는 git_delfate_bound 함수의 모든 변경사항을 보기
+  ```
+  git log -L :git_deflate_bound:zlib.c
+  ```
+
 ## 브런치 조작
 - remote 서버(ex. origin)와 동기화
   - fetch는 서버로부터 데이터를 가져와서 저장해두고 사용자가 merge하도록 준비만 해둔다. 워킹 디렉토리의 파일 내용은 변경하지 않고 그대로 남는다. 
@@ -177,4 +190,17 @@ git grep -n myfunction
 ```
 git grep --count myfunction
 ```
+- `-p` 옵션은 매칭되는 라인이 있는 함수나 메서드 찾고 싶을 때 
+  - ex) date.c 라는 파일에서 myfunction 함수를 ~~ 에서 호출하고 있는 것을 확인 가능
+```
+git grep -p myfunction *.c
+```
 ## 충돌해결
+
+
+## 히스토리 단장하기
+- 모든 것은 다른 사람과 코드를 공유하기 전에 커밋 히스토리를 예쁘게 단장해야 한다.
+- 커밋 메세지 수정하기
+```
+git commit --amend
+```
