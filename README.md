@@ -208,3 +208,15 @@ git commit --amend
   - 파일 수정후 git add로 staging area에 넣는다. 
   - 그 후에 git commit --amend 로 커밋 하면 된다. 이 명령은 Staging Area의 내용을 이용해서 수정한다.
   - 이 때 SHA-1 값이 바뀌므로 과거의 커밋을 변경할 때 주의해야 함. Rebase와 같이 이미 Push한 커밋은 수정하면 안된다.
+
+- 커밋 메시지 여러 개 수정하기
+  - `-i`옵션으로 대화형실행. HEAD~3 은 어느 시점부터 HEAD까지의 커밋 3개를 수정.
+  ```
+  git rebase -i HEAD~3
+  ```
+  - 그러면 각 커밋 앞에 'pick' 이 붙어 있는데 이것을 edit으로 수정후에.
+  ```
+  git commit --amend // 후에 커밋 메시지 수정후 텍스트 편집기 종료.
+  git rebase --continue
+  ```
+  - 후에 나머지 두 개의 커밋에 적용하면 끝. 다른 것도 pick을 edit으로 수정해서 하면 된다. 
