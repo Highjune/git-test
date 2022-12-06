@@ -227,4 +227,37 @@ git commit --amend
   git rebase -i HEAD~3
   ```
 - 커밋 합치기
+  - 아래 명령어 실행 후 pick이나 edit 말고 squash 를 입력하면 git은 해당 커밋과 바로 이전 커밋을 합칠 것이고 커밋 메시지도 수정한다. 
+  ```
+  git rebase -i HEAD~3
+  ```
+  - 만약 3개의 커밋을 모두 합치려면 스크립트를 아래와 같이 수정한다.
+  ```
+  pick f7f3f6d changed my name a bit
+  squash 310154e upated README formatting and added blame
+  squash a5f4a0d added cat-file
+  ```
+  - 저장 후 편집기 종료 하면 git은 3개의 커밋 메시지를 merge할 수 있도록 에디터를 바로 실행해주고, 메시지 저장하면 3개의 커밋이 합쳐진 하나의 커밋만 남는다.
+
+- 커밋 분리하기
+  - 아래 명령어 실행시.
+  ```
+  git rebase -i HEAD~3
+  ```
+  - 아래와 같이 나왔을 때, 두 번째 커밋인 "updated README formatting and added blame"을 "updated README formatting"과 "added blame"으로 분리하는 것이다. 
+  ```
+  pick f7f3f6d changed my name a bit
+  squash 310154e upated README formatting and added blame
+  squash a5f4a0d added cat-file
+  ```
+  - 그러면 아래와 같이 변경
+  ```
+  pick f7f3f6d changed my name a bit
+  edit 310154e upated README formatting and added blame
+  pick a5f4a0d added cat-file
+  ```
+  - 저장후에, 명령 프롬프트로 넘어간 후 그 커밋을 해제하고 그 내용을 다시 두 개로 나눠서 커밋하면 된다. 저장하고 편집기를 종료하면 Git은 제일 오래된 커밋의 부모로 이동하고서 f7f3f6d과 310154e을 처리하고 콘솔 프롬프트를 보여준다. 여기서 커밋을 해제하는 `git reset HEAD^` 라는 명령으로 커밋을 해제 하면 수정했던 파일은 Unstaged 상태가 된다. 그 후에 파일을 Stage 한 후 커밋하는 일을 원하는 만큼 반복하고 나서 `git rebase --continue` 라는 명령을 실행하면 남은 Rebase 작업이 끝난다.
+  ```
   
+  ```
+
