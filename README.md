@@ -258,6 +258,11 @@ git commit --amend
   ```
   - 저장후에, 명령 프롬프트로 넘어간 후 그 커밋을 해제하고 그 내용을 다시 두 개로 나눠서 커밋하면 된다. 저장하고 편집기를 종료하면 Git은 제일 오래된 커밋의 부모로 이동하고서 f7f3f6d과 310154e을 처리하고 콘솔 프롬프트를 보여준다. 여기서 커밋을 해제하는 `git reset HEAD^` 라는 명령으로 커밋을 해제 하면 수정했던 파일은 Unstaged 상태가 된다. 그 후에 파일을 Stage 한 후 커밋하는 일을 원하는 만큼 반복하고 나서 `git rebase --continue` 라는 명령을 실행하면 남은 Rebase 작업이 끝난다.
   ```
-  
+  git reset HEAD^
+  git add README
+  git commit -m "updated README formatting"
+  git add newfile4.txt
+  git commit -m "updated newfile4.txt
+  git rebase --continue
   ```
 
