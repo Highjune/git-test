@@ -265,3 +265,4 @@ git commit --amend
   git commit -m "updated newfile4.txt
   git rebase --continue
   ```
+## Reset
