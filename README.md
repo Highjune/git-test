@@ -8,7 +8,7 @@
 # 명령어 (기본적으로 git (명령어) -help 를 통해 직접 확인하는 습관을 가지자)
 ## config 설정
 - 설정값들 확인하기
-  - alias 등 내가 설정한 값들을 확인할 수 있다.
+  - alias 등 내가 설정한 값들을 확인할 수 있다. 
 ```
 git config --list
 ```
@@ -142,7 +142,7 @@ git stash list
   ```
   git stash list
   ```
-  - 해당하는 것만 복원
+  - 해당하는 것만 복원 
   ```
   git stash apply stash@{n}
   ```
@@ -266,3 +266,5 @@ git commit --amend
   git rebase --continue
   ```
 ## Reset
+
+
