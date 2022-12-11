@@ -1,2 +1,2 @@
-test merge file
-# note this function
+test merge file + haha
+# note this function 
