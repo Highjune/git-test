@@ -6,7 +6,14 @@
 
 
 # 명령어 (기본적으로 git (명령어) -help 를 통해 직접 확인하는 습관을 가지자)
-## config 설정
+
+## Git 설정
+- 총 3개의 설정 파일이 있다.
+  - `/etc/gitconfig` 파일. Git이 제일 먼저 찾는 파일. 이 파일은 해당 시스템이 있는 모든 사용자와 모든 저장소에 적용되는 설정 파일. git config 명령에 `--system` 옵션을 주면 이 파일을 사용한다.
+  - `~/.gitconfig` 은 해당 사용자에게만 적용되는 설정파일. `--global` 설정을 주면 이 파일을 사용한다.
+  - `.git/config` 파일은 해당 저장소에만 적용된다.
+  - 각 설정 파일에 중복된 설정이 있으면 "순서대로" 덮어쓴다.
+
 - 설정값들 확인하기
   - alias 등 내가 설정한 값들을 확인할 수 있다. 
 ```
@@ -18,6 +25,36 @@ git config --list
 ```
 git config -global alias.lg log --oneline --decorate --graph --all
 ```
+
+- core.editor 설정
+  - 기본은 vim 사용
+  ```
+  git config --global core.editor emacs
+  ```
+- commit.template 설정
+  - 만약 ~/.gitmessage.txt 라는 파일을 아래와 같이 만든다고 가정.
+  ```
+  subject line
+
+  what happened
+  ```
+  - 템플릿 설정하기
+  ```
+  git config --global commit.template ~/.gitmessage.txt
+  ```
+  - 후에 git commit 명령어를 치면 편집기에 자동으로 템플릿 파일에 설정된 것을 채워준다.
+- core.excludesfile
+  - 한 저장소 안에서뿐 아니라(.gitignore 설정) 어디에서라도 git 에 포함되지 않은 파일을 설정할 수 있다.
+  - 무시할 파일들을 설정할 수 있는데 ~/.gitignore_global 파일 안에 아래 내용 입력
+  ```
+  *~
+  .DS_Store
+  ```
+  - 파일 설정에 추가
+  ```
+  git config --global core.excludesfile ~/.gitignore_global
+  ```
+
 ## git log, 커밋 조회하기
 - 짧고 중복되지 않는 해시값으로 로그 확인하기 `--abbrev-commit`
 ```
@@ -314,4 +351,6 @@ git commit --amend
   1. 워킹 디렉토리를 안전하게 다룬다. 
     - 저장하지 않은 것이 있는지 확인해서 날려버리지 않는다는 것을 보장.
     - 워킹 디렉토리에서 작업을 한번 시도해보고 변경하지 않은 파일만 업데이트한다.
-  2. HEAD 자체를 다른 브랜치로 옮긴다.
+  2. HEAD 자체를 다른 브랜치로 옮긴다.ㅌ
+
+
