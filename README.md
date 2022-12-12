@@ -54,6 +54,10 @@ git config -global alias.lg log --oneline --decorate --graph --all
   ```
   git config --global core.excludesfile ~/.gitignore_global
   ```
+- help.autocorrect
+  - 잘 쓸 것 같진 않음.
+  - 명령어를 잘못 입력하면 Git은 추측할 수 있는 메시지를 보여주긴 하지만 직접 실행하진 않는다. 그러나 help.autocorrect를 1로 설정하면 명령어를 잘못 입력해도 Git 이 자동을 해당 명령어를 찾아서 실행해준다.
+  - 0.1 seconds 라는 것이 뜨는데, 사실 help.autocorrect 설정에 사용하는 값은 1/10초 단위의 숫자를 나타낸다. 만약 50이라는 값으로 설정한다면 자동으로 고친 명령을 실행할 때 Git은 5초간 명령을 실행하지 않고 기다려줄 수 있다.
 
 ## git log, 커밋 조회하기
 - 짧고 중복되지 않는 해시값으로 로그 확인하기 `--abbrev-commit`
