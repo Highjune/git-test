@@ -81,6 +81,46 @@ git diff --staged
 git diff master branchB
 ```
 
+## 파일 삭제
+- git 에서 파일을 지우려면 `git rm`
+  - 삭제한 파일은 staged 상태가 바로 되고, 커밋하면 파일은 삭제 & Git 이 추적하지 않음.
+```
+git rm test.txt
+```
+- 만약 그냥 `rm 파일명` 으로 지우게 된다면?
+  - 지운 후 git status로 확인해보면 Unstaged 상태임
+  ```
+  rm test.txt
+  git status
+  ```
+- `--cached` 옵션. Staging Area에서만 제거하고 워킹 디렉터리에 있는 파일은 지우지 않고 남겨두기
+  - 실수했을 경우 매우 유용
+    - `git add .` 명령어로 모든 컴파일된 .class 파일들을 staging area에 올렸을 경우.
+  - 하드디스크에 있는 파일은 그대로 두고 Git만 추적하지 않게 한다.
+  - 이것은 .gitignore 파일에 추가하는 것을 빼먹었거나, 대용량 로그 파일이나 컴파일된 .a 파일 같은 것을 실수로 추가했을 때 아주 유용.
+  ```
+  git rm --cached test.txt
+  ```
+  - 실수로 추가한 .class 파일들 staging area에서 내리기
+  ```
+  git rm --cached .class
+  ```
+  
+- 여러 개의 파일이나 디렉터리를 한꺼번에 삭제하기. file-glob 패턴
+  - log/ 디렉터리에 있는 .log 파일을 모두 삭제 
+    - `*` 앞에는 \ 있음. 파일명 확장 기능은 셸에만 있는 것이 아니라 Git 자체에도 있으므로 필요함.
+  ```
+  git rm log/\a.log
+  ```
+  - ~로 끝나는 파일들 모두 삭제
+  ```
+  git rm \*~
+  ```
+  - 현재 밑의 testfolder 폴더에 있는 .class 파일들 staging area에서 내리기
+  ```
+  git rm --cached testfolder/\*.class
+  ```
+
 ## git log, 커밋 조회하기
 - 짧고 중복되지 않는 해시값으로 로그 확인하기 `--abbrev-commit`
 ```
@@ -234,7 +274,7 @@ git stash list
   - 추적 중이지 않은 정보를 워킹 디렉터리에서 지우고 싶다면. 하위 디렉터리까지 모두 지움. `-f` 옵션은 강제(force)의 의미.
   ```
   git clean -f -d
-  ```
+  ``
   - 명령 실행 시 결과를 미리 보고 싶다면 `-n` 옵션
   ```
   git clean -d -n
